@@ -6,3 +6,27 @@ Processing Rails::InfoController#properties (for 127.0.0.1 at 2008-12-03 23:46:0
  WHERE type = 'table' AND NOT name = 'sqlite_sequence'
 [0m
 Completed in 47ms (View: 0, DB: 0) | 200 OK [http://localhost/rails/info/properties]
+
+
+Processing Rails::InfoController#properties (for 127.0.0.1 at 2008-12-03 23:53:59) [GET]
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+Completed in 47ms (View: 0, DB: 0) | 200 OK [http://localhost/rails/info/properties]
+
+
+Processing Rails::InfoController#properties (for 127.0.0.1 at 2008-12-03 23:54:04) [GET]
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+Completed in 47ms (View: 0, DB: 0) | 200 OK [http://localhost/rails/info/properties]
+
+
+Processing Rails::InfoController#properties (for 127.0.0.1 at 2008-12-03 23:59:32) [GET]
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+Completed in 63ms (View: 16, DB: 0) | 200 OK [http://localhost/rails/info/properties]
