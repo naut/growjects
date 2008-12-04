@@ -1,0 +1,24 @@
+<h1>Editing idea</h1>
+
+<% form_for(@idea) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </p>
+  <p>
+    <%= f.label :initiator %><br />
+    <%= f.text_field :initiator %>
+  </p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @idea %> |
+<%= link_to 'Back', ideas_path %>
