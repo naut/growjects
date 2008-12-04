@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
   # GET /users
   # GET /users.xml
+  
+  layout 'welcomes'
+  
   def index
     @users = User.find(:all)
 
