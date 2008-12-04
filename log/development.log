@@ -563,3 +563,838 @@ Processing UsersController#new (for 127.0.0.1 at 2008-12-04 01:16:48) [GET]
 Rendering template within layouts/users
 Rendering users/new
 Completed in 32ms (View: 16, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2008-12-04 01:55:32) [GET]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM `users` LIMIT 1[0m
+Rendering template within layouts/users
+Rendering users/index
+  [4;35;1mUser Columns (31.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mProfile Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `profiles`[0m
+  [4;35;1mProfile Load (0.0ms)[0m   [0mSELECT * FROM `profiles` WHERE (`profiles`.`id` = 1) [0m
+Completed in 78ms (View: 31, DB: 31) | 200 OK [http://localhost/users]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20081203234826)
+Migrating to CreateProfiles (20081204000923)
+Migrating to CreateIdeas (20081204005937)
+  [4;35;1mSQL (94.0ms)[0m   [0mCREATE TABLE `ideas` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `description` text, `initiator` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (31.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20081204005937')[0m
+  [4;35;1mSQL (16.0ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW FIELDS FROM `ideas`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mdescribe `ideas`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW KEYS FROM `ideas`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSHOW FIELDS FROM `profiles`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mdescribe `profiles`[0m
+  [4;35;1mSQL (16.0ms)[0m   [0mSHOW KEYS FROM `profiles`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mdescribe `users`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW KEYS FROM `users`[0m
+
+
+Processing IdeasController#index (for 127.0.0.1 at 2008-12-04 02:14:57) [GET]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mIdea Load (0.0ms)[0m   [0mSELECT * FROM `ideas` [0m
+Rendering template within layouts/ideas
+Rendering ideas/index
+Completed in 16ms (View: 0, DB: 0) | 200 OK [http://localhost/ideas]
+
+
+Processing IdeasController#new (for 127.0.0.1 at 2008-12-04 02:14:58) [GET]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mIdea Columns (15.0ms)[0m   [0mSHOW FIELDS FROM `ideas`[0m
+Rendering template within layouts/ideas
+Rendering ideas/new
+Completed in 31ms (View: 16, DB: 15) | 200 OK [http://localhost/ideas/new]
+
+
+Processing IdeasController#create (for 127.0.0.1 at 2008-12-04 02:15:13) [POST]
+  Parameters: {"idea"=>{"name"=>"growjects", "initiator"=>"2", "description"=>"fecking great!"}, "commit"=>"Create", "authenticity_token"=>"0b1c4fae6fe98018d07a94b727116171e10e196a"}
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mIdea Columns (16.0ms)[0m   [0mSHOW FIELDS FROM `ideas`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mIdea Create (0.0ms)[0m   [0mINSERT INTO `ideas` (`name`, `updated_at`, `initiator`, `description`, `created_at`) VALUES('growjects', '2008-12-04 01:15:13', 2, 'fecking great!', '2008-12-04 01:15:13')[0m
+  [4;36;1mSQL (31.0ms)[0m   [0;1mCOMMIT[0m
+Redirected to #<Idea:0x44c3a84>
+Completed in 47ms (DB: 47) | 302 Found [http://localhost/ideas]
+
+
+Processing IdeasController#show (for 127.0.0.1 at 2008-12-04 02:15:13) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mIdea Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `ideas`[0m
+  [4;35;1mIdea Load (0.0ms)[0m   [0mSELECT * FROM `ideas` WHERE (`ideas`.`id` = 1) [0m
+Rendering template within layouts/ideas
+Rendering ideas/show
+Completed in 47ms (View: 32, DB: 0) | 200 OK [http://localhost/ideas/1]
+
+
+Processing IdeasController#index (for 127.0.0.1 at 2008-12-04 02:15:15) [GET]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mIdea Load (0.0ms)[0m   [0mSELECT * FROM `ideas` [0m
+Rendering template within layouts/ideas
+Rendering ideas/index
+  [4;36;1mIdea Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `ideas`[0m
+Completed in 172ms (View: 156, DB: 0) | 200 OK [http://localhost/ideas]
+
+
+Processing IdeasController#new (for 127.0.0.1 at 2008-12-04 02:15:27) [GET]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mIdea Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `ideas`[0m
+Rendering template within layouts/ideas
+Rendering ideas/new
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhost/ideas/new]
+
+
+Processing IdeasController#create (for 127.0.0.1 at 2008-12-04 02:15:36) [POST]
+  Parameters: {"idea"=>{"name"=>"miscproj", "initiator"=>"2", "description"=>"just another project"}, "commit"=>"Create", "authenticity_token"=>"0b1c4fae6fe98018d07a94b727116171e10e196a"}
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mIdea Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `ideas`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mIdea Create (0.0ms)[0m   [0;1mINSERT INTO `ideas` (`name`, `updated_at`, `initiator`, `description`, `created_at`) VALUES('miscproj', '2008-12-04 01:15:36', 2, 'just another project', '2008-12-04 01:15:36')[0m
+  [4;35;1mSQL (16.0ms)[0m   [0mCOMMIT[0m
+Redirected to #<Idea:0x47ca3cc>
+Completed in 47ms (DB: 16) | 302 Found [http://localhost/ideas]
+
+
+Processing IdeasController#show (for 127.0.0.1 at 2008-12-04 02:15:36) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mIdea Columns (16.0ms)[0m   [0mSHOW FIELDS FROM `ideas`[0m
+  [4;36;1mIdea Load (0.0ms)[0m   [0;1mSELECT * FROM `ideas` WHERE (`ideas`.`id` = 2) [0m
+Rendering template within layouts/ideas
+Rendering ideas/show
+Completed in 16ms (View: 0, DB: 16) | 200 OK [http://localhost/ideas/2]
+
+
+Processing IdeasController#index (for 127.0.0.1 at 2008-12-04 02:15:37) [GET]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mIdea Load (0.0ms)[0m   [0;1mSELECT * FROM `ideas` [0m
+Rendering template within layouts/ideas
+Rendering ideas/index
+  [4;35;1mIdea Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `ideas`[0m
+Completed in 31ms (View: 15, DB: 0) | 200 OK [http://localhost/ideas]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (16.0ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20081203234826)
+Migrating to CreateProfiles (20081204000923)
+Migrating to CreateIdeas (20081204005937)
+  [4;35;1mSQL (0.0ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW FIELDS FROM `ideas`[0m
+  [4;35;1mSQL (15.0ms)[0m   [0mdescribe `ideas`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW KEYS FROM `ideas`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSHOW FIELDS FROM `profiles`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mdescribe `profiles`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSHOW KEYS FROM `profiles`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mdescribe `users`[0m
+  [4;36;1mSQL (16.0ms)[0m   [0;1mSHOW KEYS FROM `users`[0m
+
+
+Processing UsersController#index (for 127.0.0.1 at 2008-12-04 02:18:22) [GET]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mUser Columns (31.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mUser Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+
+
+NoMethodError (undefined method `belongs_to_and_has_many' for #<Class:0x465846c>):
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/base.rb:1833:in `method_missing'
+    /app/models/user.rb:8
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:382:in `load_without_new_constant_marking'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:382:in `load_file'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:381:in `load_file'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:256:in `require_or_load'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:427:in `load_missing_constant'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:77:in `const_missing'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:89:in `const_missing'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:95:in `send'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:95:in `const_missing'
+    /app/controllers/users_controller.rb:5:in `index'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1253:in `send'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1253:in `perform_action_without_filters'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:617:in `call_filters'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    C:/INSTAN~1/ruby/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/rescue.rb:136:in `perform_action_without_caching'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/query_cache.rb:8:in `cache'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:524:in `send'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:606:in `process_without_session_management_support'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/session_management.rb:134:in `process'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:392:in `process'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:183:in `handle_request'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:110:in `dispatch_unlocked'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:123:in `dispatch'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `synchronize'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `dispatch'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:132:in `dispatch_cgi'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:39:in `dispatch'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/bin/../lib/mongrel/rails.rb:76:in `process'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/bin/../lib/mongrel/rails.rb:74:in `synchronize'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/bin/../lib/mongrel/rails.rb:74:in `process'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/bin/../lib/mongrel.rb:159:in `process_client'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/bin/../lib/mongrel.rb:158:in `each'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/bin/../lib/mongrel.rb:158:in `process_client'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/bin/../lib/mongrel.rb:285:in `run'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/bin/../lib/mongrel.rb:285:in `initialize'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/bin/../lib/mongrel.rb:285:in `new'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/bin/../lib/mongrel.rb:285:in `run'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/bin/../lib/mongrel.rb:268:in `initialize'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/bin/../lib/mongrel.rb:268:in `new'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/bin/../lib/mongrel.rb:268:in `run'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/bin/../lib/mongrel/configurator.rb:282:in `run'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/bin/../lib/mongrel/configurator.rb:281:in `each'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/bin/../lib/mongrel/configurator.rb:281:in `run'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/bin/mongrel_rails:128:in `run'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/bin/../lib/mongrel/command.rb:212:in `run'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/bin/mongrel_rails:281
+    C:/INSTAN~1/ruby/bin/mongrel_rails:19:in `load'
+    C:/INSTAN~1/ruby/bin/mongrel_rails:19
+
+Rendered C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/_trace (78.0ms)
+Rendered C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/_request_and_response (0.0ms)
+Rendering C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing UsersController#index (for 127.0.0.1 at 2008-12-04 02:20:05) [GET]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM `users` LIMIT 1[0m
+Rendering template within layouts/users
+Rendering users/index
+  [4;35;1mUser Columns (16.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mProfile Columns (15.0ms)[0m   [0;1mSHOW FIELDS FROM `profiles`[0m
+  [4;35;1mProfile Load (0.0ms)[0m   [0mSELECT * FROM `profiles` WHERE (`profiles`.`id` = 1) [0m
+  [4;36;1mIdea Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `ideas`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mMysql::Error: Table 'growjects.ideas_users' doesn't exist: SELECT count(*) AS count_all FROM `ideas` INNER JOIN `ideas_users` ON `ideas`.id = `ideas_users`.idea_id WHERE (`ideas_users`.user_id = 1 ) [0m
+
+
+ActionView::TemplateError (Mysql::Error: Table 'growjects.ideas_users' doesn't exist: SELECT count(*) AS count_all FROM `ideas`  INNER JOIN `ideas_users` ON `ideas`.id = `ideas_users`.idea_id WHERE (`ideas_users`.user_id = 1 ) ) on line #18 of app/views/users/index.html.erb:
+15:     <td><%=h user.email %></td>
+16:     <td><%=h user.profile_id %></td>
+17: 	<td><%=h user.profile.lastname %></td>
+18: 	<td><%=h user.ideas.count(:all) %></td>
+19:     <td><%= link_to 'Show', user %></td>
+20:     <td><%= link_to 'Edit', edit_user_path(user) %></td>
+21:     <td><%= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete %></td>
+
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/connection_adapters/abstract_adapter.rb:188:in `log'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/connection_adapters/mysql_adapter.rb:309:in `execute'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/connection_adapters/mysql_adapter.rb:563:in `select'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/connection_adapters/abstract/database_statements.rb:7:in `select_all_without_query_cache'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/connection_adapters/abstract/query_cache.rb:60:in `select_all'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/connection_adapters/abstract/query_cache.rb:81:in `cache_sql'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/connection_adapters/abstract/query_cache.rb:60:in `select_all'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/connection_adapters/abstract/database_statements.rb:13:in `select_one'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/connection_adapters/abstract/database_statements.rb:19:in `select_value'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/calculations.rb:225:in `execute_simple_calculation'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/calculations.rb:126:in `calculate'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/calculations.rb:122:in `catch'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/calculations.rb:122:in `calculate'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/calculations.rb:48:in `count'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/associations/association_collection.rb:172:in `count'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/base.rb:2003:in `with_scope'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/associations/association_collection.rb:172:in `send'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/associations/association_collection.rb:172:in `count'
+    app/views/users/index.html.erb:18
+    app/views/users/index.html.erb:11:in `each'
+    app/views/users/index.html.erb:11
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/renderable.rb:39:in `send'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/renderable.rb:39:in `render'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/template.rb:73:in `render_template'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/base.rb:256:in `render'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/base.rb:367:in `_render_with_layout'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/base.rb:254:in `render'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1174:in `render_for_file'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:905:in `render_without_benchmark'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:51:in `render'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:51:in `render'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/mime_responds.rb:135:in `send'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/mime_responds.rb:135:in `custom'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/mime_responds.rb:164:in `call'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/mime_responds.rb:164:in `respond'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/mime_responds.rb:158:in `each'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/mime_responds.rb:158:in `respond'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/mime_responds.rb:107:in `respond_to'
+    app/controllers/users_controller.rb:7:in `index'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1253:in `send'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1253:in `perform_action_without_filters'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:617:in `call_filters'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    C:/INSTAN~1/ruby/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/rescue.rb:136:in `perform_action_without_caching'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/query_cache.rb:8:in `cache'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:524:in `send'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:606:in `process_without_session_management_support'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/session_management.rb:134:in `process'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:392:in `process'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:183:in `handle_request'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:110:in `dispatch_unlocked'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:123:in `dispatch'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `synchronize'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `dispatch'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:132:in `dispatch_cgi'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:39:in `dispatch'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel/rails.rb:76:in `process'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel/rails.rb:74:in `synchronize'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel/rails.rb:74:in `process'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:159:in `process_client'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:158:in `each'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:158:in `process_client'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:285:in `run'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:285:in `initialize'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:285:in `new'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:285:in `run'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:268:in `initialize'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:268:in `new'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:268:in `run'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel/configurator.rb:282:in `run'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel/configurator.rb:281:in `each'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel/configurator.rb:281:in `run'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/bin/mongrel_rails:128:in `run'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel/command.rb:212:in `run'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/bin/mongrel_rails:281
+    C:/INSTAN~1/ruby/bin/mongrel_rails:19:in `load'
+    C:/INSTAN~1/ruby/bin/mongrel_rails:19
+
+Rendered C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/_trace (109.0ms)
+Rendered C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/_request_and_response (0.0ms)
+Rendering C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20081203234826)
+Migrating to CreateProfiles (20081204000923)
+Migrating to CreateIdeas (20081204005937)
+Migrating to AddIdeasUsersJunction (20081204012603)
+  [4;35;1mSQL (94.0ms)[0m   [0mCREATE TABLE `ideas_users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `idea_id` int(11), `user_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (31.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20081204012603')[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (31.0ms)[0m   [0;1mSHOW FIELDS FROM `ideas`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mdescribe `ideas`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW KEYS FROM `ideas`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSHOW FIELDS FROM `ideas_users`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mdescribe `ideas_users`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSHOW KEYS FROM `ideas_users`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW FIELDS FROM `profiles`[0m
+  [4;35;1mSQL (16.0ms)[0m   [0mdescribe `profiles`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW KEYS FROM `profiles`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mdescribe `users`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSHOW KEYS FROM `users`[0m
+
+
+Processing UsersController#index (for 127.0.0.1 at 2008-12-04 02:34:19) [GET]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+Rendering template within layouts/users
+Rendering users/index
+  [4;36;1mUser Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mProfile Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `profiles`[0m
+  [4;36;1mProfile Load (0.0ms)[0m   [0;1mSELECT * FROM `profiles` WHERE (`profiles`.`id` = 1) [0m
+  [4;35;1mIdea Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `ideas`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `ideas` INNER JOIN `ideas_users` ON `ideas`.id = `ideas_users`.idea_id WHERE (`ideas_users`.user_id = 1 ) [0m
+Completed in 141ms (View: 125, DB: 0) | 200 OK [http://localhost/users]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2008-12-04 02:34:41) [GET]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM `users` LIMIT 1[0m
+Rendering template within layouts/users
+Rendering users/index
+  [4;35;1mUser Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mProfile Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `profiles`[0m
+  [4;35;1mProfile Load (0.0ms)[0m   [0mSELECT * FROM `profiles` WHERE (`profiles`.`id` = 1) [0m
+  [4;36;1mIdea Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `ideas`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM `ideas` INNER JOIN `ideas_users` ON `ideas`.id = `ideas_users`.idea_id WHERE (`ideas_users`.user_id = 1 ) [0m
+Completed in 188ms (View: 172, DB: 0) | 200 OK [http://localhost/users]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2008-12-04 02:35:23) [GET]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM `users` [0m
+Rendering template within layouts/users
+Rendering users/index
+  [4;36;1mUser Columns (63.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mProfile Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `profiles`[0m
+  [4;36;1mProfile Load (0.0ms)[0m   [0;1mSELECT * FROM `profiles` WHERE (`profiles`.`id` = 1) [0m
+  [4;35;1mIdea Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `ideas`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `ideas` INNER JOIN `ideas_users` ON `ideas`.id = `ideas_users`.idea_id WHERE (`ideas_users`.user_id = 1 ) [0m
+  [4;35;1mProfile Load (0.0ms)[0m   [0mSELECT * FROM `profiles` WHERE (`profiles`.`id` = 12) [0m
+
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.lastname) on line #17 of app/views/users/index.html.erb:
+14:     <td><%=h user.password %></td>
+15:     <td><%=h user.email %></td>
+16:     <td><%=h user.profile_id %></td>
+17: 	<td><%=h user.profile.lastname %></td>
+18: 	<td><%=h user.ideas.count(:all) %></td>
+19:     <td><%= link_to 'Show', user %></td>
+20:     <td><%= link_to 'Edit', edit_user_path(user) %></td>
+
+    app/views/users/index.html.erb:17
+    app/views/users/index.html.erb:11:in `each'
+    app/views/users/index.html.erb:11
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/renderable.rb:39:in `send'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/renderable.rb:39:in `render'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/template.rb:73:in `render_template'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/base.rb:256:in `render'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/base.rb:367:in `_render_with_layout'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/base.rb:254:in `render'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1174:in `render_for_file'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:905:in `render_without_benchmark'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:51:in `render'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:51:in `render'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/mime_responds.rb:135:in `send'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/mime_responds.rb:135:in `custom'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/mime_responds.rb:164:in `call'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/mime_responds.rb:164:in `respond'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/mime_responds.rb:158:in `each'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/mime_responds.rb:158:in `respond'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/mime_responds.rb:107:in `respond_to'
+    app/controllers/users_controller.rb:7:in `index'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1253:in `send'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1253:in `perform_action_without_filters'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:617:in `call_filters'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    C:/INSTAN~1/ruby/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/rescue.rb:136:in `perform_action_without_caching'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/query_cache.rb:8:in `cache'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:524:in `send'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:606:in `process_without_session_management_support'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/session_management.rb:134:in `process'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:392:in `process'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:183:in `handle_request'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:110:in `dispatch_unlocked'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:123:in `dispatch'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `synchronize'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `dispatch'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:132:in `dispatch_cgi'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:39:in `dispatch'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel/rails.rb:76:in `process'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel/rails.rb:74:in `synchronize'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel/rails.rb:74:in `process'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:159:in `process_client'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:158:in `each'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:158:in `process_client'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:285:in `run'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:285:in `initialize'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:285:in `new'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:285:in `run'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:268:in `initialize'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:268:in `new'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:268:in `run'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel/configurator.rb:282:in `run'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel/configurator.rb:281:in `each'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel/configurator.rb:281:in `run'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/bin/mongrel_rails:128:in `run'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel/command.rb:212:in `run'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/bin/mongrel_rails:281
+    C:/INSTAN~1/ruby/bin/mongrel_rails:19:in `load'
+    C:/INSTAN~1/ruby/bin/mongrel_rails:19
+
+Rendered C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/_trace (78.0ms)
+Rendered C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/_request_and_response (0.0ms)
+Rendering C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing UsersController#index (for 127.0.0.1 at 2008-12-04 02:35:34) [GET]
+  [4;36;1mSQL (15.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM `users` [0m
+Rendering template within layouts/users
+Rendering users/index
+  [4;36;1mUser Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mProfile Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `profiles`[0m
+  [4;36;1mProfile Load (0.0ms)[0m   [0;1mSELECT * FROM `profiles` WHERE (`profiles`.`id` = 1) [0m
+  [4;35;1mIdea Columns (15.0ms)[0m   [0mSHOW FIELDS FROM `ideas`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `ideas` INNER JOIN `ideas_users` ON `ideas`.id = `ideas_users`.idea_id WHERE (`ideas_users`.user_id = 1 ) [0m
+  [4;35;1mProfile Load (0.0ms)[0m   [0mSELECT * FROM `profiles` WHERE (`profiles`.`id` = 12) [0m
+
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.lastname) on line #17 of app/views/users/index.html.erb:
+14:     <td><%=h user.password %></td>
+15:     <td><%=h user.email %></td>
+16:     <td><%=h user.profile_id %></td>
+17: 	<td><%=h user.profile.lastname %></td>
+18: 	<td><%=h user.ideas.count(:all) %></td>
+19:     <td><%= link_to 'Show', user %></td>
+20:     <td><%= link_to 'Edit', edit_user_path(user) %></td>
+
+    app/views/users/index.html.erb:17
+    app/views/users/index.html.erb:11:in `each'
+    app/views/users/index.html.erb:11
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/renderable.rb:39:in `send'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/renderable.rb:39:in `render'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/template.rb:73:in `render_template'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/base.rb:256:in `render'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/base.rb:367:in `_render_with_layout'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/base.rb:254:in `render'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1174:in `render_for_file'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:905:in `render_without_benchmark'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:51:in `render'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:51:in `render'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/mime_responds.rb:135:in `send'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/mime_responds.rb:135:in `custom'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/mime_responds.rb:164:in `call'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/mime_responds.rb:164:in `respond'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/mime_responds.rb:158:in `each'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/mime_responds.rb:158:in `respond'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/mime_responds.rb:107:in `respond_to'
+    app/controllers/users_controller.rb:7:in `index'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1253:in `send'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1253:in `perform_action_without_filters'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:617:in `call_filters'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    C:/INSTAN~1/ruby/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/rescue.rb:136:in `perform_action_without_caching'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/query_cache.rb:8:in `cache'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:524:in `send'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:606:in `process_without_session_management_support'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/session_management.rb:134:in `process'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:392:in `process'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:183:in `handle_request'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:110:in `dispatch_unlocked'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:123:in `dispatch'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `synchronize'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `dispatch'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:132:in `dispatch_cgi'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:39:in `dispatch'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel/rails.rb:76:in `process'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel/rails.rb:74:in `synchronize'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel/rails.rb:74:in `process'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:159:in `process_client'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:158:in `each'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:158:in `process_client'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:285:in `run'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:285:in `initialize'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:285:in `new'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:285:in `run'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:268:in `initialize'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:268:in `new'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:268:in `run'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel/configurator.rb:282:in `run'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel/configurator.rb:281:in `each'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel/configurator.rb:281:in `run'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/bin/mongrel_rails:128:in `run'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel/command.rb:212:in `run'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/bin/mongrel_rails:281
+    C:/INSTAN~1/ruby/bin/mongrel_rails:19:in `load'
+    C:/INSTAN~1/ruby/bin/mongrel_rails:19
+
+Rendered C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/_trace (94.0ms)
+Rendered C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/_request_and_response (0.0ms)
+Rendering C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing UsersController#index (for 127.0.0.1 at 2008-12-04 02:36:00) [GET]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM `users` [0m
+Rendering template within layouts/users
+Rendering users/index
+  [4;36;1mUser Columns (31.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mIdea Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `ideas`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `ideas` INNER JOIN `ideas_users` ON `ideas`.id = `ideas_users`.idea_id WHERE (`ideas_users`.user_id = 1 ) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM `ideas` INNER JOIN `ideas_users` ON `ideas`.id = `ideas_users`.idea_id WHERE (`ideas_users`.user_id = 2 ) [0m
+Completed in 78ms (View: 47, DB: 31) | 200 OK [http://localhost/users]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2008-12-04 02:36:01) [GET]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM `users` [0m
+Rendering template within layouts/users
+Rendering users/index
+  [4;36;1mUser Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mIdea Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `ideas`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `ideas` INNER JOIN `ideas_users` ON `ideas`.id = `ideas_users`.idea_id WHERE (`ideas_users`.user_id = 1 ) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM `ideas` INNER JOIN `ideas_users` ON `ideas`.id = `ideas_users`.idea_id WHERE (`ideas_users`.user_id = 2 ) [0m
+Completed in 47ms (View: 31, DB: 0) | 200 OK [http://localhost/users]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2008-12-04 02:36:06) [GET]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM `users` [0m
+Rendering template within layouts/users
+Rendering users/index
+  [4;36;1mUser Columns (15.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mIdea Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `ideas`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `ideas` INNER JOIN `ideas_users` ON `ideas`.id = `ideas_users`.idea_id WHERE (`ideas_users`.user_id = 1 ) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM `ideas` INNER JOIN `ideas_users` ON `ideas`.id = `ideas_users`.idea_id WHERE (`ideas_users`.user_id = 2 ) [0m
+Completed in 203ms (View: 156, DB: 15) | 200 OK [http://localhost/users]
+
+
+Processing ProfilesController#index (for 127.0.0.1 at 2008-12-04 02:36:51) [GET]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mProfile Load (0.0ms)[0m   [0mSELECT * FROM `profiles` [0m
+Rendering template within layouts/profiles
+Rendering profiles/index
+  [4;36;1mProfile Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `profiles`[0m
+Completed in 32ms (View: 32, DB: 0) | 200 OK [http://localhost/profiles]
+
+
+Processing ProfilesController#new (for 127.0.0.1 at 2008-12-04 02:36:53) [GET]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mProfile Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `profiles`[0m
+Rendering template within layouts/profiles
+Rendering profiles/new
+Completed in 31ms (View: 15, DB: 0) | 200 OK [http://localhost/profiles/new]
+
+
+Processing ProfilesController#create (for 127.0.0.1 at 2008-12-04 02:37:14) [POST]
+  Parameters: {"commit"=>"Create", "profile"=>{"website"=>"www.default.com", "lastname"=>"name", "firstname"=>"first", "avatar"=>"ava.jpg", "user_id"=>"2"}, "authenticity_token"=>"0b1c4fae6fe98018d07a94b727116171e10e196a"}
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mProfile Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `profiles`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mProfile Create (0.0ms)[0m   [0;1mINSERT INTO `profiles` (`updated_at`, `firstname`, `lastname`, `website`, `avatar`, `user_id`, `created_at`) VALUES('2008-12-04 01:37:14', 'first', 'name', 'www.default.com', 'ava.jpg', 2, '2008-12-04 01:37:14')[0m
+  [4;35;1mSQL (31.0ms)[0m   [0mCOMMIT[0m
+Redirected to #<Profile:0x472465c>
+Completed in 63ms (DB: 31) | 302 Found [http://localhost/profiles]
+
+
+Processing ProfilesController#show (for 127.0.0.1 at 2008-12-04 02:37:14) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mProfile Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `profiles`[0m
+  [4;36;1mProfile Load (0.0ms)[0m   [0;1mSELECT * FROM `profiles` WHERE (`profiles`.`id` = 2) [0m
+Rendering template within layouts/profiles
+Rendering profiles/show
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhost/profiles/2]
+
+
+Processing ProfilesController#index (for 127.0.0.1 at 2008-12-04 02:37:16) [GET]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mProfile Load (0.0ms)[0m   [0;1mSELECT * FROM `profiles` [0m
+Rendering template within layouts/profiles
+Rendering profiles/index
+  [4;35;1mProfile Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `profiles`[0m
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhost/profiles]
+
+
+Processing ProfilesController#index (for 127.0.0.1 at 2008-12-04 02:37:26) [GET]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mProfile Load (0.0ms)[0m   [0mSELECT * FROM `profiles` [0m
+Rendering template within layouts/profiles
+Rendering profiles/index
+  [4;36;1mProfile Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `profiles`[0m
+Completed in 31ms (View: 15, DB: 0) | 200 OK [http://localhost/profiles]
+
+
+Processing ProfilesController#index (for 127.0.0.1 at 2008-12-04 02:37:27) [GET]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mProfile Load (0.0ms)[0m   [0;1mSELECT * FROM `profiles` [0m
+Rendering template within layouts/profiles
+Rendering profiles/index
+  [4;35;1mProfile Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `profiles`[0m
+Completed in 32ms (View: 16, DB: 0) | 200 OK [http://localhost/profiles]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2008-12-04 02:37:31) [GET]
+
+
+ActionController::RoutingError (No route matches "/suers" with {:method=>:get}):
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/routing/recognition_optimisation.rb:66:in `recognize_path'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/routing/route_set.rb:386:in `recognize'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:182:in `handle_request'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:110:in `dispatch_unlocked'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:123:in `dispatch'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `synchronize'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `dispatch'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:132:in `dispatch_cgi'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:39:in `dispatch'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/bin/../lib/mongrel/rails.rb:76:in `process'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/bin/../lib/mongrel/rails.rb:74:in `synchronize'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/bin/../lib/mongrel/rails.rb:74:in `process'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/bin/../lib/mongrel.rb:159:in `process_client'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/bin/../lib/mongrel.rb:158:in `each'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/bin/../lib/mongrel.rb:158:in `process_client'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/bin/../lib/mongrel.rb:285:in `run'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/bin/../lib/mongrel.rb:285:in `initialize'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/bin/../lib/mongrel.rb:285:in `new'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/bin/../lib/mongrel.rb:285:in `run'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/bin/../lib/mongrel.rb:268:in `initialize'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/bin/../lib/mongrel.rb:268:in `new'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/bin/../lib/mongrel.rb:268:in `run'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/bin/../lib/mongrel/configurator.rb:282:in `run'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/bin/../lib/mongrel/configurator.rb:281:in `each'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/bin/../lib/mongrel/configurator.rb:281:in `run'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/bin/mongrel_rails:128:in `run'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/bin/../lib/mongrel/command.rb:212:in `run'
+    C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/bin/mongrel_rails:281
+    C:/INSTAN~1/ruby/bin/mongrel_rails:19:in `load'
+    C:/INSTAN~1/ruby/bin/mongrel_rails:19
+
+Rendering C:/INSTAN~1/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/layout.erb (not_found)
+
+
+Processing UsersController#index (for 127.0.0.1 at 2008-12-04 02:37:36) [GET]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM `users` [0m
+Rendering template within layouts/users
+Rendering users/index
+  [4;36;1mUser Columns (16.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mProfile Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `profiles`[0m
+  [4;36;1mProfile Load (0.0ms)[0m   [0;1mSELECT * FROM `profiles` WHERE (`profiles`.`id` = 1) [0m
+  [4;35;1mIdea Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `ideas`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `ideas` INNER JOIN `ideas_users` ON `ideas`.id = `ideas_users`.idea_id WHERE (`ideas_users`.user_id = 1 ) [0m
+  [4;35;1mProfile Load (0.0ms)[0m   [0mSELECT * FROM `profiles` WHERE (`profiles`.`id` = 2) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `ideas` INNER JOIN `ideas_users` ON `ideas`.id = `ideas_users`.idea_id WHERE (`ideas_users`.user_id = 2 ) [0m
+Completed in 62ms (View: 31, DB: 16) | 200 OK [http://localhost/users]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2008-12-04 02:39:02) [GET]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM `users` [0m
+Rendering template within layouts/users
+Rendering users/index
+  [4;35;1mUser Columns (16.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mProfile Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `profiles`[0m
+  [4;35;1mProfile Load (0.0ms)[0m   [0mSELECT * FROM `profiles` WHERE (`profiles`.`id` = 1) [0m
+  [4;36;1mIdea Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `ideas`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM `ideas` INNER JOIN `ideas_users` ON `ideas`.id = `ideas_users`.idea_id WHERE (`ideas_users`.user_id = 1 ) [0m
+  [4;36;1mProfile Load (0.0ms)[0m   [0;1mSELECT * FROM `profiles` WHERE (`profiles`.`id` = 2) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM `ideas` INNER JOIN `ideas_users` ON `ideas`.id = `ideas_users`.idea_id WHERE (`ideas_users`.user_id = 2 ) [0m
+Completed in 62ms (View: 31, DB: 16) | 200 OK [http://localhost/users]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2008-12-04 02:39:30) [GET]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM `users` [0m
+Rendering template within layouts/users
+Rendering users/index
+  [4;36;1mUser Columns (32.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mProfile Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `profiles`[0m
+  [4;36;1mProfile Load (0.0ms)[0m   [0;1mSELECT * FROM `profiles` WHERE (`profiles`.`id` = 1) [0m
+  [4;35;1mJoin Table Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `ideas_users`[0m
+  [4;36;1mIdea Load (0.0ms)[0m   [0;1mSELECT * FROM `ideas` INNER JOIN `ideas_users` ON `ideas`.id = `ideas_users`.idea_id WHERE (`ideas_users`.user_id = 1 ) LIMIT 1[0m
+  [4;35;1mProfile Load (0.0ms)[0m   [0mSELECT * FROM `profiles` WHERE (`profiles`.`id` = 2) [0m
+  [4;36;1mJoin Table Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `ideas_users`[0m
+  [4;35;1mIdea Load (0.0ms)[0m   [0mSELECT * FROM `ideas` INNER JOIN `ideas_users` ON `ideas`.id = `ideas_users`.idea_id WHERE (`ideas_users`.user_id = 2 ) LIMIT 1[0m
+Completed in 94ms (View: 47, DB: 32) | 200 OK [http://localhost/users]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2008-12-04 02:39:43) [GET]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM `users` [0m
+Rendering template within layouts/users
+Rendering users/index
+  [4;36;1mUser Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mProfile Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `profiles`[0m
+  [4;36;1mProfile Load (0.0ms)[0m   [0;1mSELECT * FROM `profiles` WHERE (`profiles`.`id` = 1) [0m
+  [4;35;1mJoin Table Columns (15.0ms)[0m   [0mSHOW FIELDS FROM `ideas_users`[0m
+  [4;36;1mIdea Load (0.0ms)[0m   [0;1mSELECT * FROM `ideas` INNER JOIN `ideas_users` ON `ideas`.id = `ideas_users`.idea_id WHERE (`ideas_users`.user_id = 1 ) LIMIT 1[0m
+  [4;35;1mIdea Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `ideas`[0m
+  [4;36;1mProfile Load (0.0ms)[0m   [0;1mSELECT * FROM `profiles` WHERE (`profiles`.`id` = 2) [0m
+  [4;35;1mJoin Table Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `ideas_users`[0m
+  [4;36;1mIdea Load (0.0ms)[0m   [0;1mSELECT * FROM `ideas` INNER JOIN `ideas_users` ON `ideas`.id = `ideas_users`.idea_id WHERE (`ideas_users`.user_id = 2 ) LIMIT 1[0m
+Completed in 63ms (View: 48, DB: 15) | 200 OK [http://localhost/users]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2008-12-04 02:39:44) [GET]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM `users` [0m
+Rendering template within layouts/users
+Rendering users/index
+  [4;35;1mUser Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mProfile Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `profiles`[0m
+  [4;35;1mProfile Load (0.0ms)[0m   [0mSELECT * FROM `profiles` WHERE (`profiles`.`id` = 1) [0m
+  [4;36;1mJoin Table Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `ideas_users`[0m
+  [4;35;1mIdea Load (0.0ms)[0m   [0mSELECT * FROM `ideas` INNER JOIN `ideas_users` ON `ideas`.id = `ideas_users`.idea_id WHERE (`ideas_users`.user_id = 1 ) LIMIT 1[0m
+  [4;36;1mIdea Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `ideas`[0m
+  [4;35;1mProfile Load (0.0ms)[0m   [0mSELECT * FROM `profiles` WHERE (`profiles`.`id` = 2) [0m
+  [4;36;1mJoin Table Columns (15.0ms)[0m   [0;1mSHOW FIELDS FROM `ideas_users`[0m
+  [4;35;1mIdea Load (0.0ms)[0m   [0mSELECT * FROM `ideas` INNER JOIN `ideas_users` ON `ideas`.id = `ideas_users`.idea_id WHERE (`ideas_users`.user_id = 2 ) LIMIT 1[0m
+Completed in 62ms (View: 31, DB: 15) | 200 OK [http://localhost/users]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2008-12-04 02:42:10) [GET]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM `users` [0m
+Rendering template within layouts/users
+Rendering users/index
+  [4;36;1mUser Columns (15.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mProfile Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `profiles`[0m
+  [4;36;1mProfile Load (0.0ms)[0m   [0;1mSELECT * FROM `profiles` WHERE (`profiles`.`id` = 1) [0m
+  [4;35;1mIdea Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `ideas`[0m
+  [4;36;1mSQL (110.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `ideas` INNER JOIN `ideas_users` ON `ideas`.id = `ideas_users`.idea_id WHERE (`ideas_users`.user_id = 1 ) [0m
+  [4;35;1mProfile Load (0.0ms)[0m   [0mSELECT * FROM `profiles` WHERE (`profiles`.`id` = 2) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `ideas` INNER JOIN `ideas_users` ON `ideas`.id = `ideas_users`.idea_id WHERE (`ideas_users`.user_id = 2 ) [0m
+Completed in 187ms (View: 46, DB: 125) | 200 OK [http://localhost/users]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2008-12-04 02:42:39) [GET]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM `users` [0m
+Rendering template within layouts/users
+Rendering users/index
+  [4;35;1mUser Columns (16.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mProfile Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `profiles`[0m
+  [4;35;1mProfile Load (0.0ms)[0m   [0mSELECT * FROM `profiles` WHERE (`profiles`.`id` = 1) [0m
+  [4;36;1mIdea Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `ideas`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM `ideas` INNER JOIN `ideas_users` ON `ideas`.id = `ideas_users`.idea_id WHERE (`ideas_users`.user_id = 1 ) [0m
+  [4;36;1mProfile Load (0.0ms)[0m   [0;1mSELECT * FROM `profiles` WHERE (`profiles`.`id` = 2) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM `ideas` INNER JOIN `ideas_users` ON `ideas`.id = `ideas_users`.idea_id WHERE (`ideas_users`.user_id = 2 ) [0m
+Completed in 63ms (View: 31, DB: 16) | 200 OK [http://localhost/users]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2008-12-04 02:43:13) [GET]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM `users` [0m
+Rendering template within layouts/users
+Rendering users/index
+  [4;36;1mUser Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mProfile Columns (15.0ms)[0m   [0mSHOW FIELDS FROM `profiles`[0m
+  [4;36;1mProfile Load (0.0ms)[0m   [0;1mSELECT * FROM `profiles` WHERE (`profiles`.`id` = 1) [0m
+  [4;35;1mJoin Table Columns (16.0ms)[0m   [0mSHOW FIELDS FROM `ideas_users`[0m
+  [4;36;1mIdea Load (0.0ms)[0m   [0;1mSELECT * FROM `ideas` INNER JOIN `ideas_users` ON `ideas`.id = `ideas_users`.idea_id WHERE (`ideas_users`.user_id = 1 ) LIMIT 1[0m
+  [4;35;1mIdea Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `ideas`[0m
+  [4;36;1mProfile Load (0.0ms)[0m   [0;1mSELECT * FROM `profiles` WHERE (`profiles`.`id` = 2) [0m
+  [4;35;1mJoin Table Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `ideas_users`[0m
+  [4;36;1mIdea Load (0.0ms)[0m   [0;1mSELECT * FROM `ideas` INNER JOIN `ideas_users` ON `ideas`.id = `ideas_users`.idea_id WHERE (`ideas_users`.user_id = 2 ) LIMIT 1[0m
+Completed in 79ms (View: 32, DB: 31) | 200 OK [http://localhost/users]
+
+
+Processing ProfilesController#index (for 127.0.0.1 at 2008-12-04 03:02:31) [GET]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mProfile Load (0.0ms)[0m   [0;1mSELECT * FROM `profiles` [0m
+Rendering template within layouts/profiles
+Rendering profiles/index
+  [4;35;1mProfile Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `profiles`[0m
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://localhost/profiles]

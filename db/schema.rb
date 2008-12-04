@@ -9,7 +9,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20081204000923) do
+ActiveRecord::Schema.define(:version => 20081204012603) do
+
+  create_table "ideas", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "initiator"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "ideas_users", :force => true do |t|
+    t.integer  "idea_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "profiles", :force => true do |t|
     t.integer  "user_id"

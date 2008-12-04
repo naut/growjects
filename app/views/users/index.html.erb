@@ -6,6 +6,8 @@
     <th>Password</th>
     <th>Email</th>
     <th>Profile</th>
+	<th>Lastname</th>
+	<th>Works on # projects:</th>
   </tr>
 
 <% for user in @users %>
@@ -14,6 +16,8 @@
     <td><%=h user.password %></td>
     <td><%=h user.email %></td>
     <td><%=h user.profile_id %></td>
+	<td><%=h user.profile.lastname %></td>
+	<td><%=h user.ideas.find(:first).name %></td>
     <td><%= link_to 'Show', user %></td>
     <td><%= link_to 'Edit', edit_user_path(user) %></td>
     <td><%= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete %></td>

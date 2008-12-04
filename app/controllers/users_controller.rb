@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.xml
   def index
-    @users = User.find(:all, :limit => 1)
+    @users = User.find(:all)
 
     respond_to do |format|
       format.html # index.html.erb
