@@ -1,0 +1,28 @@
+<p>
+  <b>User:</b>
+  <%=h @profile.user_id %>
+</p>
+
+<p>
+  <b>Firstname:</b>
+  <%=h @profile.firstname %>
+</p>
+
+<p>
+  <b>Lastname:</b>
+  <%=h @profile.lastname %>
+</p>
+
+<p>
+  <b>Avatar:</b>
+  <%=h @profile.avatar %>
+</p>
+
+<p>
+  <b>Website:</b>
+  <%=h @profile.website %>
+</p>
+
+
+<%= link_to 'Edit', edit_profile_path(@profile) %> |
+<%= link_to 'Back', profiles_path %>
