@@ -9,40 +9,53 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20081204012603) do
+ActiveRecord::Schema.define(:version => 20081207153448) do
 
   create_table "ideas", :force => true do |t|
     t.string   "name"
-    t.text     "description"
+    t.string   "desc"
     t.integer  "initiator"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  create_table "ideas_resources", :force => true do |t|
+    t.integer "idea_id"
+    t.integer "resource_id"
+  end
+
   create_table "ideas_users", :force => true do |t|
-    t.integer  "idea_id"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer "idea_id"
+    t.integer "user_id"
   end
 
   create_table "profiles", :force => true do |t|
-    t.integer  "user_id"
     t.string   "firstname"
     t.string   "lastname"
     t.string   "avatar"
-    t.string   "website"
+    t.string   "additional_infos"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+  end
+
+  create_table "resources", :force => true do |t|
+    t.string   "name"
+    t.string   "desc"
+    t.string   "url"
+    t.string   "mime_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "users", :force => true do |t|
-    t.string   "name"
-    t.string   "password"
     t.string   "email"
-    t.integer  "profile_id"
+    t.string   "enc_pwd"
+    t.string   "salt"
+    t.string   "nick"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "profile_id"
   end
 
 end

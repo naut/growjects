@@ -1,6 +1,10 @@
 class IdeasController < ApplicationController
   # GET /ideas
   # GET /ideas.xml
+  
+  before_filter :login_required?, :except => [:new, :create]
+  
+  layout 'application'
   def index
     @ideas = Idea.find(:all)
 
@@ -14,7 +18,7 @@ class IdeasController < ApplicationController
   # GET /ideas/1.xml
   def show
     @idea = Idea.find(params[:id])
-
+    @participants = @idea.get_participants
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @idea }
@@ -36,12 +40,17 @@ class IdeasController < ApplicationController
   def edit
     @idea = Idea.find(params[:id])
   end
-
+  
+  def user_participate
+    user_participation
+  end
+  
+  
   # POST /ideas
   # POST /ideas.xml
   def create
     @idea = Idea.new(params[:idea])
-
+    @idea.initiator = initialize_user.id
     respond_to do |format|
       if @idea.save
         flash[:notice] = 'Idea was successfully created.'

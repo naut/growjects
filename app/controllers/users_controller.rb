@@ -2,7 +2,11 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.xml
   
-  layout 'welcomes'
+  layout 'application'
+  
+  before_filter :login_required?, :except => [:new, :create]
+  
+  
   
   def index
     @users = User.find(:all)
@@ -16,8 +20,9 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.xml
   def show
+    
     @user = User.find(params[:id])
-
+    
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @user }
@@ -44,16 +49,19 @@ class UsersController < ApplicationController
   # POST /users.xml
   def create
     @user = User.new(params[:user])
-
-    respond_to do |format|
-      if @user.save
-        flash[:notice] = 'User was successfully created.'
-        format.html { redirect_to(@user) }
-        format.xml  { render :xml => @user, :status => :created, :location => @user }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
-      end
+    @last_id_usr = User.find(:first, :order => 'id DESC')
+    @user.id = @last_id_usr.id + 1
+    prof_id = new_profile(session[:user])
+    @user.profile_id = prof_id
+    if @user.save
+      @current_user = @user
+      session[:user] = @user.id
+      flash[:notice] = 'successfuly signed up!'
+      redirect_to :action => 'show', :id => @user.id
+      
+    else
+      render :action => 'new'
+      flash[:notice] = 'oops, something went wrong!'    
     end
   end
 
@@ -78,6 +86,8 @@ class UsersController < ApplicationController
   # DELETE /users/1.xml
   def destroy
     @user = User.find(params[:id])
+    @profile = Profile.find_by_user_id(params[:id])
+    @profile.destroy
     @user.destroy
 
     respond_to do |format|

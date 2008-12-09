@@ -1,8 +1,7 @@
 <p>
-  <b>User:</b>
-  <%=h @profile.user_id %>
+  <b>Belongs to User:</b>
+  <%=h @profile.user.email %>
 </p>
-
 <p>
   <b>Firstname:</b>
   <%=h @profile.firstname %>
@@ -19,8 +18,8 @@
 </p>
 
 <p>
-  <b>Website:</b>
-  <%=h @profile.website %>
+  <b>Additional infos:</b>
+  <%=h @profile.additional_infos %>
 </p>
 
 

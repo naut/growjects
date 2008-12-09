@@ -1,23 +1,25 @@
 <p>
-  <b>Name:</b>
-  <%=h @user.name %>
-</p>
-
-<p>
-  <b>Password:</b>
-  <%=h @user.password %>
-</p>
-
-<p>
   <b>Email:</b>
   <%=h @user.email %>
 </p>
 
 <p>
-  <b>Profile:</b>
-  <%=h @user.profile_id %>
+  <b>Enc pwd:</b>
+  <%=h @user.enc_pwd %>
 </p>
 
+<p>
+  <b>Salt:</b>
+  <%=h @user.salt %>
+</p>
+
+<p>
+  <b>Nick:</b>
+  <%=h @user.nick %>
+</p>
+<% for i in @user.ideas do %>
+	<%= i.name %>
+<% end %>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

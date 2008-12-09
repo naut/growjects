@@ -3,9 +3,11 @@
 one:
   name: MyString
   desc: MyString
-  initiator: 1
+  url: MyString
+  mime-type: MyString
 
 two:
   name: MyString
   desc: MyString
-  initiator: 1
+  url: MyString
+  mime-type: MyString

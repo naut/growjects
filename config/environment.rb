@@ -55,8 +55,8 @@ Rails::Initializer.run do |config|
   # Make sure the secret is at least 30 characters and all random, 
   # no regular words or you'll be exposed to dictionary attacks.
   config.action_controller.session = {
-    :session_key => '_newproj_session',
-    :secret      => 'aef69420cef155b21859d7fdea27f30001863084a09a7618a391e8faaad3abce8a426b3593d98ff09bf9c3d16c398482288e6c06a107a568023597bd4a56c7a7'
+    :session_key => '_growjects_beta_session',
+    :secret      => '4c48e3890072d3d0a9576c68479fdb9e5599fe29dd767f232f547097d49cd78743d4ec82b9b47ffa31268c6cb2bb225d6e850238b8ab50bf45ca320a99181a18'
   }
 
   # Use the database for sessions instead of the cookie-based default,

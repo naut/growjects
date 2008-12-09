@@ -4,14 +4,20 @@
 </p>
 
 <p>
-  <b>Description:</b>
-  <%=h @idea.description %>
+  <b>Desc:</b>
+  <%=h @idea.desc %>
 </p>
 
 <p>
   <b>Initiator:</b>
   <%=h @idea.initiator %>
 </p>
+<p>
+	<b>Participants: </b>
+</p>
+<% for p in @participants do %>
+	<p><%= p.nick %></p>
+<% end %>
 
 
 <%= link_to 'Edit', edit_idea_path(@idea) %> |

@@ -1,6 +1,11 @@
 class ProfilesController < ApplicationController
   # GET /profiles
   # GET /profiles.xml
+  
+  before_filter :login_required?, :except => [:new, :create]
+  
+  layout 'application'
+  
   def index
     @profiles = Profile.find(:all)
 
@@ -41,7 +46,7 @@ class ProfilesController < ApplicationController
   # POST /profiles.xml
   def create
     @profile = Profile.new(params[:profile])
-
+    @profile.user_id = @current_user.id
     respond_to do |format|
       if @profile.save
         flash[:notice] = 'Profile was successfully created.'

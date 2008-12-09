@@ -1,0 +1,16 @@
+<h1>Login</h1>
+<% if logged_in? %>
+	<p>you're logged in, lad!</p>
+	<% else %>
+	<p>yer nah logged in laddie!</p>
+	<% puts params[:email]%>
+	<% puts params[:pwd]%>
+<%end %>
+<% if !logged_in? %>
+	<%= link_to 'REGISTER', new_user_path %>
+	<% form_tag :action => 'create' do %>
+	<%= text_field_tag :email, params[:email], :class => 'short'  %>
+	<%= text_field_tag :pwd, params[:pwd], :class => 'short'  %>
+	<%= submit_tag 'login'%>
+<%end %>
+<% end %>

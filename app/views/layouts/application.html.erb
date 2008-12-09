@@ -1,0 +1,21 @@
+<p> --- Layout --------- </p>
+<a>You are logged in as </a>
+<%if @current_user %>
+	<%= @current_user.nick%>
+	<a> | </a><%= link_to 'edit profile', edit_profile_path(@current_user.profile_id) %>
+<%else%>
+	<%='noone'%>
+<%end%>
+
+<%= link_to '[Logout]', :controller => 'sessions', :action => 'destroy' %>
+<br />
+<p> -------- navigation -------- </p>
+<%= render :partial => 'layouts/navi' %>
+<p> -------- ende navigation -------- </p>
+<% unless flash[:notice].blank? %>
+<div id ="notice"><%= flash[:notice]%></div>
+<% end %>
+<p>  -------- Content --------- </p>
+<%= yield %>
+</p> -------- Ende Content --------- </p>
+<br /><a> --- Ende Layout --- </a>
